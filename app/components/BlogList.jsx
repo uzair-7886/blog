@@ -24,7 +24,7 @@ group-hover:scale-105 transition-transform duration-200
 ease-out"
           >
             <Image
-              className="object-cover object-center"
+              className="object-cover object-center bg-gray-200"
               src={urlForImage(post.mainImage).url()}
               alt={post.author.name}
               fill
