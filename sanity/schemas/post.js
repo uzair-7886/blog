@@ -18,6 +18,11 @@ export const post = {
       },
     },
     {
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+    },
+    {
       name: 'author',
       title: 'Author',
       type: 'reference',

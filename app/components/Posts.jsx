@@ -7,15 +7,16 @@ const query=groq`
 *[_type=="post"]{
     ...,
     author->,
+    description,
     categories[]->,    
-} | order(_createdAt desc) 
+}| order(_createdAt desc) 
 `;
 
 const posts=await client.fetch(query)
 
 function Posts() {
   return (
-    <BlogList query={posts}/>
+    <BlogList posts={posts}/>
   )
 }
 
