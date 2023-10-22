@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+.post p{
+    padding-bottom: 20px;
+    font-size: 18px;
+}

@@ -24,7 +24,7 @@ function BlogList({ posts }) {
 cursor-pointer"
         >
           <div
-            className="relative w-full md:h-80 h-48 drop-shadow-xl
+            className="relative w-full md:h-64 h-48 drop-shadow-xl
 group-hover:scale-105 transition-transform duration-200
 ease-out"
           >

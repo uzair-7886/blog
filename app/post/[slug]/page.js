@@ -46,7 +46,7 @@ categories []->
   return (
     <>
     <Header/>
-    <article className="p-5 md:p-10 pb-28 ">
+    <article className="p-5 md:p-10 pb-28 post">
       <section className="space-y-2 border border-yellow-400 ">
         <div className="relative min-h-56 flex flex-col md:flex-row
   justify-between">
@@ -102,7 +102,7 @@ space-x-2">
                 {post.categories.map((category) => (
                   <p
                     key={category._id}
-                    className="bg-gray-800 text-white px-3 py-1
+                    className="bg-gray-800 text-white px-5 py-1
 rounded-full text-sm font-semibold mt-4">
                     {category.title}
                   </p>

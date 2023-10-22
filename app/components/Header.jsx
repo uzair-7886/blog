@@ -3,8 +3,8 @@ import Image from 'next/image';
 
 function Header() {
   return (
-    <div className='p-5 md:p-10  flex justify-center items-center'>
-      <div className='md:mt-10 flex md:flex-row flex-col items-center mx-auto w-full md:w-3/5 '>
+    <div className='p-5   flex justify-center items-center flex-1'>
+      <div className='md:mt-10 flex md:flex-row flex-col items-center mx-auto w-full md:w-4/5 '>
         <div className='flex-col order-2 md:order-1'>
           <div className='text-2xl md:text-4xl font-semibold'>
             Hi there, this is
@@ -24,6 +24,7 @@ function Header() {
               height={100}
               layout='responsive'
               objectFit='cover'
+              className='rounded-full'
             />
           </div>
         </div>
