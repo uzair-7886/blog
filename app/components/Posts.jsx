@@ -15,6 +15,7 @@ const query=groq`
 const posts=await client.fetch(query)
 
 function Posts() {
+  // {console.log(posts.length)}
   return (
     <BlogList posts={posts}/>
   )

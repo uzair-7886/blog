@@ -1,6 +1,7 @@
 import React from "react";
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
+import ClientSideRoute from "./ClientSideRoute";
 
 function BlogList({ posts }) {
   return (
@@ -13,8 +14,12 @@ function BlogList({ posts }) {
 
       
       {posts.map((post) => (
+        <ClientSideRoute
+        key={post._id}
+        route={`/post/${post.slug.current}`}
+        >
         <div
-          key={post._id}
+          
           className="flex flex-col group
 cursor-pointer"
         >
@@ -69,6 +74,7 @@ px-3 py-1 rounded-full text-sm font-semibold"
   Read Post
 </p>
         </div>
+        </ClientSideRoute>
       ))}
       </div>
     </div>
