@@ -2,8 +2,30 @@ import { groq } from "next-sanity"
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
+import { PortableText } from "@portabletext/react";
+import RichText from "@/app/components/RichText";
 import Header from "@/app/components/Header";
-import PortableText from "react-portable-text";
+// import PortableText from "react-portable-text";
+
+
+export const revalidate=30
+
+
+export async function generateStaticParams(){
+    const query=groq`
+    *[_type=="post"]{
+        slug,
+    }`;
+    const posts=await client.fetch(query);
+    return posts.map((post)=>({
+        params:{
+            slug:post.slug.current,
+        },
+    }));
+}
+
+
+
 
 export default async function Post(
   { params: { slug } }
@@ -22,6 +44,8 @@ categories []->
   const post = await client.fetch(query, { slug })
 
   return (
+    <>
+    <Header/>
     <article className="p-5 md:p-10 pb-28 ">
       <section className="space-y-2 border border-yellow-400 ">
         <div className="relative min-h-56 flex flex-col md:flex-row
@@ -89,11 +113,17 @@ rounded-full text-sm font-semibold mt-4">
         </div>
       </section>
 
-      <PortableText
+      {/* <PortableText
       content={post.body}
       projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
       dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
+      /> */}
+      <PortableText
+      value={post.body}
+      components={RichText}
       />
     </article>
+    <hr className="mb-5 md:mb-10 border-yellow-400 border-2"></hr>
+    </>
   )
 }

@@ -8,7 +8,7 @@ const props = {
     "--my-green": "#0f9d58",
   };
   
-  const myTheme = buildLegacyTheme({
+export const myTheme = buildLegacyTheme({
     /* Base theme colors */
     "--black": props["--my-black"],
     "--white": props["--my-white"],

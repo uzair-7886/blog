@@ -1,6 +1,7 @@
 import { Lora } from 'next/font/google'
 import './globals.css'
 
+
 const inter = Lora({ subsets: ['latin'] })
 
 export const metadata = {
@@ -11,7 +12,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} max-w-7xl mx-auto`}>{children}</body>
+      <body className={`${inter.className} max-w-7xl mx-auto text-justify`}>
+        {children}</body>
     </html>
   )
 }

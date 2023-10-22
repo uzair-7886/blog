@@ -77,6 +77,7 @@ px-3 py-1 rounded-full text-sm font-semibold"
         </ClientSideRoute>
       ))}
       </div>
+      
     </div>
   );
 }
