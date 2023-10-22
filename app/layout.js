@@ -1,5 +1,7 @@
 import { Lora } from 'next/font/google'
 import './globals.css'
+import Provider from './components/Provider'
+import ThemeSwitcher from './components/ThemeSwitcher'
 
 
 const inter = Lora({ subsets: ['latin'] })
@@ -12,8 +14,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Provider>
+        
       <body className={`${inter.className} max-w-5xl mx-auto text-justify `}>
+        <ThemeSwitcher/>
         {children}</body>
+        </Provider>
     </html>
   )
 }
