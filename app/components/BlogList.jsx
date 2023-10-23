@@ -6,7 +6,7 @@ import ClientSideRoute from "./ClientSideRoute";
 function BlogList({ posts }) {
   return (
     <div>
-      <hr className="mb-5 md:mb-10 border-yellow-400"></hr>
+      <hr className="mb-5 md:mb-10 border-yellow-400 dark:border-purple-400"></hr>
       {/* <h1>Latest Articles</h1> */}
       {/* <div>{JSON.stringify(posts)}</div> */}
       {/* Posts */}
@@ -56,7 +56,7 @@ md: gap-x-2 items-center"
                 {post.categories.map((category) => (
                   <div
                     className="bg-yellow-400 text-center text-black
-px-3 py-1 rounded-full text-sm font-semibold"
+px-3 py-1 rounded-full text-sm font-semibold dark:bg-purple-400"
                   >
                     <p>{category.title}</p>
                   </div>
@@ -70,9 +70,18 @@ px-3 py-1 rounded-full text-sm font-semibold"
 <p className="text-gray-500 line-clamp-2">{post.description}</p>
 {/* {console.log(post)} */}
 </div>
-<p className="text-yellow-400 font-bold text-lg md:text-xl group-hover:underline ">
+<div className="flex justify-start items-center space-x-2">
+<p className="text-yellow-400 dark:text-purple-400 font-bold text-lg md:text-xl group-hover:underline ">
   Read Post
 </p>
+<div className=" text-yellow-400 dark:text-purple-400"  >
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+</svg>
+
+
+          </div>
+</div>
         </div>
         </ClientSideRoute>
       ))}

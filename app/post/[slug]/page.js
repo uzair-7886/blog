@@ -45,11 +45,11 @@ categories []->
 
   return (
     <>
-    <Header/>
+    {/* <Header/> */}
     <article className="p-5 md:p-10 pb-28 post">
-      <section className="space-y-2 border border-yellow-400 ">
+      <section className="space-y-2 border-0 border-yellow-400 dark:bg-purple-400">
         <div className="relative min-h-56 flex flex-col md:flex-row
-  justify-between">
+  justify-between ">
           <div className="absolute top-0 w-full h-full opacity-20 blur-sm
   ">
             <Image
@@ -59,7 +59,7 @@ categories []->
               fill
             />
           </div>
-          <section className="p-5 w-full bg-yellow-400">
+          <section className="p-5 w-full bg-yellow-400  dark:bg-purple-400">
             <div className="flex flex-col md:flex-row justify-between
 gap-y-5">
               <div>
@@ -100,12 +100,12 @@ gap-y-5">
               <div className="flex items-center justify-end mt-auto
 space-x-2">
                 {post.categories.map((category) => (
-                  <p
+                  <div
                     key={category._id}
-                    className="bg-gray-800 text-white px-5 py-1
-rounded-full text-sm font-semibold mt-4">
+                    className="bg-gray-800 text-white px-4 py-1 flex justify-center items-center
+rounded-full text-sm font-semibold mt-4 md:text-base">
                     {category.title}
-                  </p>
+                  </div>
                 ))}
               </div>
             </div>
@@ -113,17 +113,15 @@ rounded-full text-sm font-semibold mt-4">
         </div>
       </section>
 
-      {/* <PortableText
-      content={post.body}
-      projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
-      dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
-      /> */}
+      <section className="dark:text-gray-100 text-gray-900">
+
       <PortableText
       value={post.body}
       components={RichText}
       />
+      </section>
     </article>
-    <hr className="mb-5 md:mb-10 border-yellow-400 border-2"></hr>
+    <hr className="mb-5 md:mb-10 border-yellow-400 dark:border-purple-400 border-2"></hr>
     </>
   )
 }

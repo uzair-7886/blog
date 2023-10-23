@@ -4,7 +4,10 @@ import Provider from './components/Provider'
 import ThemeSwitcher from './components/ThemeSwitcher'
 
 
+
 const inter = Lora({ subsets: ['latin'] })
+
+
 
 export const metadata = {
   title: 'Create Next App',
@@ -17,7 +20,7 @@ export default function RootLayout({ children }) {
       <Provider>
         
       <body className={`${inter.className} max-w-5xl mx-auto text-justify `}>
-        <ThemeSwitcher/>
+        <ThemeSwitcher />
         {children}</body>
         </Provider>
     </html>

@@ -8,7 +8,7 @@ function Header() {
         <div className='flex-col order-2 md:order-1'>
           <div className='text-2xl md:text-4xl font-semibold'>
             Hi there, this is
-            <span className='text-yellow-400'> Uzair Khan</span>
+            <span className='text-yellow-400 dark:text-purple-400'> Uzair Khan</span>
           </div>
           <div className='py-3 text-justify md:text-xl text-lg text-gray-500'>
             Welcome to my blog! Here, I delve into a range of topics including technology, social affairs, and more. Join me as we explore thought-provoking subjects and gain insights into the world around us. Let's embark on this journey of discovery together!
