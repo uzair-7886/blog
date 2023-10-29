@@ -2,6 +2,7 @@ import { Lora } from 'next/font/google'
 import './globals.css'
 import Provider from './components/Provider'
 import ThemeSwitcher from './components/ThemeSwitcher'
+import { ModeContextProvider } from './context/mode.context'
 
 
 
@@ -21,7 +22,10 @@ export default function RootLayout({ children }) {
         
       <body className={`${inter.className} max-w-5xl mx-auto text-justify `}>
         <ThemeSwitcher />
-        {children}</body>
+        <ModeContextProvider>
+        {children}
+        </ModeContextProvider>
+        </body>
         </Provider>
     </html>
   )

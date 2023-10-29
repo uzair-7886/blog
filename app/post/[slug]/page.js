@@ -5,6 +5,7 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import RichText from "@/app/components/RichText";
 import Header from "@/app/components/Header";
+
 // import PortableText from "react-portable-text";
 
 

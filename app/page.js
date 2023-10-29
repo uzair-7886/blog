@@ -3,8 +3,10 @@ import BlogList from './components/BlogList';
 import { groq } from 'next-sanity'
 import { client } from '@/sanity/lib/client';
 import Header from './components/Header';
+import BrowseBlogs from "@/app/components/BrowseBlogs";
+import { useModeContext } from './context/mode.context';
 
-export const revalidate=30
+export const revalidate=60
 const query=groq`
 *[_type=="post"]{
     ...,
@@ -17,11 +19,13 @@ const query=groq`
 
 
 async function Posts() {
+  // const {state}=useModeContext()
+
   const posts=await client.fetch(query)
   return (
     <>
     <Header/>
-    <BlogList posts={posts}/>
+    <BrowseBlogs/>
     </>
   )
 }

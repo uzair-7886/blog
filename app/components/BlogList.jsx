@@ -6,10 +6,8 @@ import ClientSideRoute from "./ClientSideRoute";
 function BlogList({ posts }) {
   return (
     <div>
-      <hr className="mb-5 md:mb-10 border-yellow-400 dark:border-purple-400"></hr>
-      {/* <h1>Latest Articles</h1> */}
-      {/* <div>{JSON.stringify(posts)}</div> */}
-      {/* Posts */}
+      
+      
       <div className="grid grid-cols-1 md:grid-cols-2 md:px-10 px-5 gap-10 md:gap-y-16 pb-24 gap-y-10">
 
       
