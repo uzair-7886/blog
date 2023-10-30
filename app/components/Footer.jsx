@@ -7,7 +7,7 @@ function Footer() {
                 {/* <FaCc className="mr-2" /> */}
                 <span>Copyrights Reserved!</span>
             </div>
-            <a href="mailto:uzairk7886@gmail.com?subject=Contribute as an Author" className="mt-1 dark:hover:text-purple-400 hover:text-yellow-400">Contribute as an author?</a>
+            <a href="mailto:uzairk7886@gmail.com?subject=Contribute as an Author" className="mt-1 dark:hover:text-purple-400 hover:text-yellow-400 underline ">Contribute as an author?</a>
         </div>
     );
 }

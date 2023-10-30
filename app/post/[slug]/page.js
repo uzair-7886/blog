@@ -6,7 +6,6 @@ import { PortableText } from "@portabletext/react";
 import RichText from "@/app/components/RichText";
 import Header from "@/app/components/Header";
 
-// import PortableText from "react-portable-text";
 
 
 export const revalidate=30
@@ -122,7 +121,7 @@ rounded-full text-sm font-semibold mt-4 md:text-base">
       />
       </section>
     </article>
-    <hr className="mb-5 md:mb-10 border-yellow-400 dark:border-purple-400 border-2"></hr>
+    <hr className="mb-5 md:mb-10 border-yellow-400 dark:border-purple-400 "></hr>
     </>
   )
 }
