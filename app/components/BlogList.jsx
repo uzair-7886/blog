@@ -8,7 +8,7 @@ function BlogList({ posts }) {
     <div>
       
       
-      <div className="grid grid-cols-1 md:grid-cols-2 md:px-10 px-5 gap-10 md:gap-y-16 pb-24 gap-y-10">
+      <div className="scroll-smooth focus:scroll-auto grid grid-cols-1 md:grid-cols-2 md:px-10 px-5 gap-10 md:gap-y-16 pb-24 gap-y-10">
 
       
       {posts.map((post) => (
