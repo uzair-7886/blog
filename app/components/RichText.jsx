@@ -31,13 +31,13 @@ const RichText = {
       <h1 className="text-3xl md:text-4xl py-10 font-bold text-yellow-400 dark:text-purple-400">{children}</h1>
     ),
     h2: ({ children }) => (
-      <h2 className="text-xl py-10 font-bold  text-yellow-400 dark:text-purple-400">{children}</h2>
+      <h2 className="text-xl py-5 font-bold  text-yellow-400 dark:text-purple-400">{children}</h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-2xl py-10 font-bold  text-yellow-400 dark:text-purple-400">{children}</h3>
+      <h3 className="text-2xl py-5 font-bold  text-yellow-400 dark:text-purple-400">{children}</h3>
     ),
     h4: ({ children }) => (
-      <h4 className="text-lg py-10 font-bold  text-yellow-400 dark:text-purple-400">{children}</h4>
+      <h4 className="text-lg py-5 font-bold  text-yellow-400 dark:text-purple-400">{children}</h4>
     ),
     
 
