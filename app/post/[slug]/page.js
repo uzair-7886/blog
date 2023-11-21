@@ -4,7 +4,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import RichText from "@/app/components/RichText";
-import Header from "@/app/components/Header";
+
 
 
 
@@ -46,6 +46,7 @@ categories []->
   return (
     <>
     {/* <Header/> */}
+    
     <article className="p-5 md:p-10 pb-28 post">
       <section className="space-y-2 border-0 border-yellow-400 dark:bg-purple-400">
         <div className="relative min-h-56 flex flex-col md:flex-row

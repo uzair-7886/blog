@@ -1,6 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
+// import SyntaxHighlighter from 'react-syntax-highlighter';
+import CodeHighlighter from "./CodeHighlighter";
+
+
 
 const RichText = {
   types: {
@@ -16,6 +20,17 @@ const RichText = {
         </div>
       );
     },
+    code: (props) => {
+      // const { language, code } = props.node;
+      return (
+        <CodeHighlighter 
+          code={props.value.code}
+          language={props.value.language}
+        />
+      );
+      // console.log(props)
+    },
+    
   },
   list: {
     bullet: ({ children }) => (
@@ -64,6 +79,7 @@ const RichText = {
       );
     },
   },
+
 };
 
 export default RichText;

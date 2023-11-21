@@ -69,5 +69,9 @@ export const blockContent = {
         }
       ]
     },
+    {
+      type: 'code',
+      title : 'Code Block'
+}
   ],
 }
