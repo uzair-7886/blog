@@ -2,9 +2,16 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
 import { groq } from "next-sanity"
-import { client } from "@/sanity/lib/client";
+// import { client } from "@/sanity/lib/client";
+import { createClient } from 'next-sanity'
 
-
+const client=createClient({
+    projectId:process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    dataset:process.env.NEXT_PUBLIC_SANITY_DATASET,
+    apiVersion:'2021-03-25',
+    useCdn:false,
+    token:process.env.NEXT_PUBLIC_SANITY_AUTH_TOKEN
+})
 
 
 function Likes({ slug,id }) {
@@ -45,20 +52,16 @@ function Likes({ slug,id }) {
     }, [likes]);
   
     useEffect(() => {
-      // This is where you can handle sending the update to the backend.
-      // For simplicity, let's assume you send an update every 5 seconds.
       const updateBackend = setInterval(() => {
-        // Check if localLikes is greater than 0 before sending an update
         if (localLikes > 0) {
-          // Send update to the backend
-          console.log(`Sending ${localLikes} to the backend`);
-          console.log(id)
+          // console.log(`Sending ${localLikes} to the backend`);
+          // console.log(id)
             client
                 .patch(id)
                 .set({  likes: likes.likes + localLikes })
                 .commit()
                 .then((updatedPost) => {
-                console.log(`Updated post to ${updatedPost.likes}`);
+                // console.log(`Updated post to ${updatedPost.likes}`);
                 setLocalLikes(0);
                 })
                 .catch((err) => {
