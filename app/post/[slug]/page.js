@@ -5,6 +5,7 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import RichText from "@/app/components/RichText";
 import Footer from "@/app/components/Footer";
+import Likes from "@/app/components/Likes";
 
 
 
@@ -15,7 +16,7 @@ export const revalidate=30
 export async function generateStaticParams(){
     const query=groq`
     *[_type=="post"]{
-        slug,
+        slug
     }`;
     const posts=await client.fetch(query);
     return posts.map((post)=>({
@@ -42,10 +43,13 @@ categories []->
 }
 `
 
+
   const post = await client.fetch(query, { slug })
+  // const likes=await client.fetch(likesQuery,{slug})
 
   return (
     <>
+    {/* {likes.likes} */}
     {/* <Header/> */}
     
     <article className="p-5 md:p-10 pb-28 post">
@@ -115,12 +119,14 @@ rounded-full text-sm font-semibold mt-4 md:text-base">
         </div>
       </section>
 
-      <section className="dark:text-gray-100 text-gray-900">
+      <section className="dark:text-gray-100 text-gray-900 relative">
+        
 
       <PortableText
       value={post.body}
       components={RichText}
       />
+      <Likes slug={slug} id={post._id}/>
       </section>
     </article>
     <hr className="mb-5 md:mb-10 border-yellow-400 dark:border-purple-400 "></hr>

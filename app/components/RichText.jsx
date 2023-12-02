@@ -66,7 +66,7 @@ const RichText = {
   },
   marks: {
     highlight:({children})=>(
-      <span className="text-lg md:text-xl px-1 bg-yellow-500 dark:bg-purple-900">{children}</span>
+      <span className="text-lg md:text-xl text-black px-1 bg-yellow-100 dark:bg-purple-300">{children}</span>
     ),
     link: ({ children, value }) => {
       const rel = !value.href.startsWith("/")

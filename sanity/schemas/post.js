@@ -54,6 +54,12 @@ export const post = {
       title: 'Published at',
       type: 'datetime',
     },
+    //write schema for like 
+    {
+      name: 'likes',
+      title: 'Likes',
+      type: 'number',
+    },
     {
       name: 'body',
       title: 'Body',
