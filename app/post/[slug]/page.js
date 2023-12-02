@@ -4,6 +4,7 @@ import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import RichText from "@/app/components/RichText";
+import Footer from "@/app/components/Footer";
 
 
 
@@ -123,6 +124,7 @@ rounded-full text-sm font-semibold mt-4 md:text-base">
       </section>
     </article>
     <hr className="mb-5 md:mb-10 border-yellow-400 dark:border-purple-400 "></hr>
+    <Footer/>
     </>
   )
 }

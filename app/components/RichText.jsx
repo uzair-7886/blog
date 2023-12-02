@@ -41,7 +41,8 @@ const RichText = {
     ),
   },
   block: {
-    // p:({children})=>(<p className="bg-red-500">{children}</p>),
+    normal:({children})=>(<h1 className="text-lg md:text-xl py-3 md:py-5">{children}</h1>),
+    
     h1: ({ children }) => (
       <h1 className="text-3xl md:text-4xl py-10 font-bold text-yellow-400 dark:text-purple-400">{children}</h1>
     ),
@@ -55,6 +56,7 @@ const RichText = {
       <h4 className="text-lg py-5 font-bold  text-yellow-400 dark:text-purple-400">{children}</h4>
     ),
     
+    
 
     blockquote: ({ children }) => (
       <blockquote className="border border-l-yellow-400 dark:border-l-purple-400 border-l-8 pl-5 py-5 my-5 bg-gray-200 italic text-black">
@@ -63,6 +65,9 @@ const RichText = {
     ),
   },
   marks: {
+    highlight:({children})=>(
+      <span className="text-lg md:text-xl px-1 bg-yellow-500 dark:bg-purple-900">{children}</span>
+    ),
     link: ({ children, value }) => {
       const rel = !value.href.startsWith("/")
         ? "noreferrer noopener"

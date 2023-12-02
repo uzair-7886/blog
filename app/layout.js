@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Provider>
         
-      <body className={`${inter.className} max-w-5xl mx-auto text-justify `}>
+      <body className={`${inter.className} max-w-5xl mx-auto text-justify`}>
         <ThemeSwitcher />
         <ModeContextProvider>
         {children}
