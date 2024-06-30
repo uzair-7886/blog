@@ -53,77 +53,83 @@ const CategoriesDropdown=({setCategory,mode})=>{
 }
 
 function BrowseBlogs({children}) {
-    const [posts,setPosts]=useState([])
-    const [category,setCategory]=useState("none")
+    const [posts, setPosts] = useState([])
+    const [category, setCategory] = useState("none")
+    const [isLoading, setIsLoading] = useState(true)
     
     const { state, dispatch, changeMode } = useContext(ModeContext);
     const { mode } = state;
 
-    const query=mode=='latest'||category=="none"?groq`
-*[_type=="post"]{
-    ...,
-    author->,
-    description,
-    categories[]->,    
-} | order(_createdAt desc)
-`
-:
-groq`
-*[_type=="post" && $category in categories[]->title]{
-    ...,
-    author->,
-    description,
-    categories[]->,    
-} | order(_createdAt desc)
-`
-
+    const query = mode === 'latest' || category === "none" 
+        ? groq`
+            *[_type=="post"]{
+                ...,
+                author->,
+                description,
+                categories[]->,    
+            } | order(_createdAt desc)
+        `
+        : groq`
+            *[_type=="post" && $category in categories[]->title]{
+                ...,
+                author->,
+                description,
+                categories[]->,    
+            } | order(_createdAt desc)
+        `
 
     useEffect(() => {
         const fetchData = async () => {
-          const result = await client.fetch(query,{category});
-          setPosts(result)
+            setIsLoading(true)
+            try {
+                const result = await client.fetch(query, { category });
+                setPosts(result)
+            } catch (error) {
+                console.error("Error fetching posts:", error)
+            } finally {
+                setIsLoading(false)
+            }
         };
         fetchData();
-    },[mode,category])
-  return (
-    <>
-    <hr className=" border-yellow-400 dark:border-purple-400"></hr>
-    <div className='my-5  flex flex-row space-x-2 md:space-x-5 px-5 md:px-10 p-2 '>
-        <div
-        onClick={()=>changeMode("latest")}
-        className='cursor-pointer'
-        >
-            <h1 className={`px-2 py-1 text-md md:text-xl ${mode=="latest"?'text-yellow-400 dark:text-purple-400 ':'text-gray-400' } font-semibold`} >
-                Latest Articles
-            </h1>
-        </div>
-        <div
-        onClick={()=>changeMode("categories")}
-        className='cursor-pointer'
-        >
+    }, [mode, category])
 
-
-            <CategoriesDropdown setCategory={setCategory} mode={mode}/>
-        </div>
-    </div>
-    {mode=="categories"?
-        <div className='my-5  flex flex-row space-x-2 md:space-x-5 px-5 md:px-10 p-2 '>
-            <h1 className='text-lg md:text-xl text-gray-400 font-semibold' >
-               {category=='none'?"Showing Results for Latest Articles":`Showing Results for '${category}'`} 
-            </h1>
-        </div>
-        :
-        <div className='my-5  flex flex-row space-x-2 md:space-x-5 px-5 md:px-10 p-2 '>
-            <h1 className='text-lg md:text-xl text-gray-400 font-semibold' >
-                Showing Results for Latest Articles
-            </h1>
-        </div>
-    }
-
-    
-    <BlogList posts={posts}/>
-    </>
-  )
+    return (
+        <>
+            <hr className="border-yellow-400 dark:border-purple-400"></hr>
+            <div className='my-5 flex flex-row space-x-2 md:space-x-5 px-5 md:px-10 p-2'>
+                <div
+                    onClick={() => changeMode("latest")}
+                    className='cursor-pointer'
+                >
+                    <h1 className={`px-2 py-1 text-md md:text-xl ${mode === "latest" ? 'text-yellow-400 dark:text-purple-400' : 'text-gray-400'} font-semibold`}>
+                        Latest Articles
+                    </h1>
+                </div>
+                <div
+                    onClick={() => changeMode("categories")}
+                    className='cursor-pointer'
+                >
+                    <CategoriesDropdown setCategory={setCategory} mode={mode}/>
+                </div>
+            </div>
+            {mode === "categories" ?
+                <div className='my-5 flex flex-row space-x-2 md:space-x-5 px-5 md:px-10 p-2'>
+                    <h1 className='text-lg md:text-xl text-gray-400 font-semibold'>
+                        {category === 'none' ? "Showing Results for Latest Articles" : `Showing Results for '${category}'`} 
+                    </h1>
+                </div>
+                :
+                <div className='my-5 flex flex-row space-x-2 md:space-x-5 px-5 md:px-10 p-2'>
+                    <h1 className='text-lg md:text-xl text-gray-400 font-semibold'>
+                        Showing Results for Latest Articles
+                    </h1>
+                </div>
+            }
+            
+            <BlogList posts={posts} isLoading={isLoading}/>
+        </>
+    )
 }
+
 
 export default BrowseBlogs
